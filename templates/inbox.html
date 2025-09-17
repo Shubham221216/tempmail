@@ -387,9 +387,7 @@
     <div class="container">
         <div class="email-info">
             <h1>Your Temporary Email</h1>
-            <div class="email-address" id="emailAddress">
-                {{ email }}
-            </div>
+            <div class="email-address" id="emailAddress">{{ email }}</div>
             <button class="copy-btn" onclick="copyEmail()">📋 Copy Email</button>
             <div class="status-indicator">
                 <div class="status-dot"></div>
@@ -504,7 +502,7 @@
         }
 
         function copyEmail() {
-            const emailText = document.getElementById('emailAddress').textContent;
+            const emailText = document.getElementById('emailAddress').textContent.trim();
             navigator.clipboard.writeText(emailText).then(() => {
                 showNotification('Email address copied to clipboard!');
             }).catch(() => {
